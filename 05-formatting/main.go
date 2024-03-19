@@ -14,10 +14,12 @@ func main() {
 	fmt.Println("Enter the tax rate: ")
 	fmt.Scan(&taxtRate)
 
+	formattedEbt := fmt.Sprintf("%.2f", revenue-expenses)
 	ebt := revenue - expenses
 	profit := ebt * (1 - taxtRate/100)
 	ratio := profit / revenue
-	fmt.Println("ebt %v\nebtt :%v", ebt)
+	// fmt.Println("ebt %v\nebtt :%v", ebt)
+	fmt.Println("ebt", formattedEbt)
 	fmt.Println("profit%f\nprofit", profit)
 	fmt.Println("ratio%.1f\n ratio", ratio)
 
