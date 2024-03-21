@@ -20,6 +20,7 @@ func main() {
 	fmt.Println(ebt)
 	fmt.Println(profit)
 	fmt.Println(ratio)
+	fmt.Println(ratio + profit)
 
 }
 
