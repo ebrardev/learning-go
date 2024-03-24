@@ -3,15 +3,28 @@ package main
 import (
 	"fmt"
 	"os"
+	"strconv"
 )
+
+const accountBalanceFile = "balance.txt"
+
+func readBalanceFromFile() float64 {
+
+	data, _ := os.ReadFile(accountBalanceFile) //? _ is used to ignore the error
+
+	balanceText := string(data)
+	balance, _ := strconv.ParseFloat(balanceText, 64)
+
+	return balance
+}
 
 func writeBalanceToFile(balance float64) {
 	balanceText := fmt.Sprintf("%f", balance)
-	os.WriteFile("balance.txt", []byte(balanceText), 0644)
+	os.WriteFile(accountBalanceFile, []byte(balanceText), 0644)
 }
 
 func main() {
-	var accountBalance float64 = 1000.0
+	var accountBalance = readBalanceFromFile()
 	var depositAmount, WithdrawAmount float64
 	fmt.Println("Welcome to the Bank of Golang")
 	for i := 0; i < 3; i++ {
