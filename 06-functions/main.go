@@ -15,7 +15,7 @@ func main() {
 	fmt.Scan(&taxtRate)
 
 	ebt := revenue - expenses
-	profit := ebt * (1 - taxtRate/100)
+	profit := calculateProfitValue(ebt, taxtRate)
 	ratio := profit / revenue
 	fmt.Println(ebt)
 	fmt.Println(profit)
@@ -26,4 +26,9 @@ func main() {
 
 func outputText(text string) {
 	fmt.Println(text)
+}
+
+func calculateProfitValue(ebt, taxtRate float64) float64 {
+	pf := ebt * (1 - taxtRate/100)
+	return pf
 }
