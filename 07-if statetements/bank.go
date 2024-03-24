@@ -2,7 +2,13 @@ package main
 
 import (
 	"fmt"
+	"os"
 )
+
+func writeBalanceToFile(balance float64) {
+	balanceText := fmt.Sprintf("%f", balance)
+	os.WriteFile("balance.txt", []byte(balanceText), 0644)
+}
 
 func main() {
 	var accountBalance float64 = 1000.0
@@ -22,6 +28,17 @@ func main() {
 
 		// wantsCheckBalance:= choice == 1
 
+		switch choice {
+		case 1:
+			fmt.Println("Checking your balance")
+			fmt.Println("Your account balance is: ", accountBalance)
+		case 2:
+			fmt.Println("Deposit")
+			fmt.Print("Enter the amount you want to deposit: ")
+			fmt.Scan(&depositAmount)
+
+		}
+
 		if choice == 1 {
 			fmt.Println("Checking your balance")
 			fmt.Println("Your account balance is: ", accountBalance)
@@ -33,10 +50,12 @@ func main() {
 
 			if depositAmount <= 0 {
 				fmt.Println("Invalid deposit amount")
-				return
+
+				continue
 			}
 			accountBalance += depositAmount // accountBalance = accountBalance + depositAmount
 			fmt.Println(" Balance updated!, Your account balance is: ", accountBalance)
+			writeBalanceToFile(accountBalance)
 
 		} else if choice == 3 {
 			fmt.Println("Withdraw")
@@ -53,8 +72,11 @@ func main() {
 			fmt.Println("Exiting the Bank of Golang")
 		} else {
 			fmt.Println("Invalid choice")
+			break
 
 		}
 	}
+
+	fmt.Println("Thank you for using the Bank of Golang")
 
 }
