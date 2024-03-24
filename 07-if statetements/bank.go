@@ -7,9 +7,9 @@ import (
 func main() {
 	var accountBalance float64 = 1000.0
 	var depositAmount, WithdrawAmount float64
-
+	fmt.Println("Welcome to the Bank of Golang")
 	for i := 0; i < 3; i++ {
-		fmt.Println("Welcome to the Bank of Golang")
+
 		fmt.Println("What would you like to do today?")
 		fmt.Println("1. Check Balance")
 		fmt.Println("2. Deposit")
