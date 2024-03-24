@@ -5,7 +5,8 @@ import (
 )
 
 func main() {
-
+	var accountBalance float64 = 1000.0
+	var depositAmount float64 = 0.0
 	fmt.Println("Welcome to the Bank of Golang")
 	fmt.Println("What would you like to do today?")
 	fmt.Println("1. Check Balance")
@@ -17,14 +18,20 @@ func main() {
 	fmt.Print("Enter your choice: ")
 	fmt.Scan(&choice)
 
+	// wantsCheckBalance:= choice == 1
 
+	if choice == 1 {
+		fmt.Println("Checking your balance")
+		fmt.Println("Your account balance is: ", accountBalance)
 
-	wantsCheckBalance:= choice == 1
-     
-	  if wantsCheckBalance {
+	} else if choice == 2 {
+		fmt.Println("Deposit")
+		fmt.Print("Enter the amount you want to deposit: ")
+		fmt.Scan(&depositAmount)
+		accountBalance += depositAmount // accountBalance = accountBalance + depositAmount
+		fmt.Println(" Balance updated!, Your account balance is: ", accountBalance)
 
-	  }
-	fmt.Println("Your choice is: ", choice)
- 
-	
+	} else if choice == 3 {
+
+	}
 }
