@@ -7,6 +7,7 @@ import (
 func main() {
 	var accountBalance float64 = 1000.0
 	var depositAmount float64 = 0.0
+	var WithdrawAmount float64
 	fmt.Println("Welcome to the Bank of Golang")
 	fmt.Println("What would you like to do today?")
 	fmt.Println("1. Check Balance")
@@ -32,6 +33,20 @@ func main() {
 		fmt.Println(" Balance updated!, Your account balance is: ", accountBalance)
 
 	} else if choice == 3 {
+		fmt.Println("Withdraw")
+		fmt.Print("Enter the amount you want to withdraw: ")
+		fmt.Scan(&WithdrawAmount)
+		if WithdrawAmount > accountBalance {
+			fmt.Println("Insufficient balance")
+		} else {
+			accountBalance -= WithdrawAmount // accountBalance = accountBalance - WithdrawAmount
+			fmt.Println("Balance updated!, Your account balance is: ", accountBalance)
+		}
+
+	} else if choice == 4 {
+		fmt.Println("Exiting the Bank of Golang")
+	} else {
+		fmt.Println("Invalid choice")
 
 	}
 }
