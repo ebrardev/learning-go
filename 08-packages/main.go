@@ -22,7 +22,8 @@ func main() {
 	}
 	var depositAmount, WithdrawAmount float64
 	fmt.Println("Welcome to the Bank of Golang")
-	fmt.Println("Hello, ", randomdata.FullName(randomdata.RandomGender))
+	fmt.Println("Hello, ", randomdata.FullName(randomdata.RandomGender), randomdata.PhoneNumber())
+
 	for {
 		presentOptions()
 		var choice int
