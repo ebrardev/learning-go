@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"example.com/ebrarmea/fileops"
+	"github.com/Pallinder/go-randomdata"
 )
 
 const accountBalanceFile = "balance.txt"
@@ -21,6 +22,7 @@ func main() {
 	}
 	var depositAmount, WithdrawAmount float64
 	fmt.Println("Welcome to the Bank of Golang")
+	fmt.Println("Hello, ", randomdata.FullName(randomdata.RandomGender))
 	for {
 		presentOptions()
 		var choice int
