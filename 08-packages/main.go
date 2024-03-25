@@ -1,36 +1,13 @@
 package main
 
 import (
-	"errors"
 	"fmt"
-	"os"
-	"strconv"
 )
 
 const accountBalanceFile = "balance.txt"
 
-func readBalanceFromFile() (float64, error) {
-	data, err := os.ReadFile(accountBalanceFile)
-	if err != nil {
-		return 1000, errors.New("could not read balance file: " + err.Error())
-	}
-
-	balanceText := string(data)
-	balance, err := strconv.ParseFloat(balanceText, 64)
-	if err != nil {
-		return 1000, errors.New("could not convert balance to float: " + err.Error())
-	}
-
-	return balance, nil
-}
-
-func writeBalanceToFile(balance float64) {
-	balanceText := fmt.Sprintf("%f", balance)
-	os.WriteFile(accountBalanceFile, []byte(balanceText), 0644)
-}
-
 func main() {
-	var accountBalance, err = readBalanceFromFile()
+	var accountBalance, err = getFloatFromFile(accountBalanceFile)
 
 	if err != nil {
 		fmt.Println("Error reading balance from file: ", err)
@@ -77,7 +54,7 @@ func main() {
 			}
 			accountBalance += depositAmount // accountBalance = accountBalance + depositAmount
 			fmt.Println(" Balance updated!, Your account balance is: ", accountBalance)
-			writeBalanceToFile(accountBalance)
+			writeFloatToFile(accountBalance, accountBalanceFile)
 
 		} else if choice == 3 {
 			fmt.Println("Withdraw")
@@ -88,6 +65,7 @@ func main() {
 			} else {
 				accountBalance -= WithdrawAmount // accountBalance = accountBalance - WithdrawAmount
 				fmt.Println("Balance updated!, Your account balance is: ", accountBalance)
+				writeFloatToFile(accountBalance, accountBalanceFile)
 			}
 
 		} else if choice == 4 {
