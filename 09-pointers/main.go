@@ -5,8 +5,10 @@ import "fmt"
 func main() {
 
 	age := 30
+	var agePointer *int
+	agePointer = &age
 
-	fmt.Println("Age is: ", age)
+	fmt.Println("Age is: ", agePointer)
 	adultYears := getAdultYears(age)
 	fmt.Println("Adult years: ", adultYears)
 }
