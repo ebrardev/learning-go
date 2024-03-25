@@ -2,12 +2,14 @@ package main
 
 import (
 	"fmt"
+
+	"example.com/ebrarmea/fileops"
 )
 
 const accountBalanceFile = "balance.txt"
 
 func main() {
-	var accountBalance, err = getFloatFromFile(accountBalanceFile)
+	var accountBalance, err = fileops.GetFloatFromFile(accountBalanceFile)
 
 	if err != nil {
 		fmt.Println("Error reading balance from file: ", err)
@@ -54,7 +56,7 @@ func main() {
 			}
 			accountBalance += depositAmount // accountBalance = accountBalance + depositAmount
 			fmt.Println(" Balance updated!, Your account balance is: ", accountBalance)
-			writeFloatToFile(accountBalance, accountBalanceFile)
+			fileops.WriteFloatToFile(accountBalance, accountBalanceFile)
 
 		} else if choice == 3 {
 			fmt.Println("Withdraw")
@@ -65,7 +67,7 @@ func main() {
 			} else {
 				accountBalance -= WithdrawAmount // accountBalance = accountBalance - WithdrawAmount
 				fmt.Println("Balance updated!, Your account balance is: ", accountBalance)
-				writeFloatToFile(accountBalance, accountBalanceFile)
+				fileops.WriteFloatToFile(accountBalance, accountBalanceFile)
 			}
 
 		} else if choice == 4 {
