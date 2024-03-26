@@ -9,11 +9,15 @@ func main() {
 	lastName := getUserData("Please enter your last name: ")
 	birthdate := getUserData("Please enter your birthdate (MM/DD/YYYY): ")
 
-	// ... do something awesome with that gathered data!
-
-	fmt.Println(firstName, lastName, birthdate)
+	outputUserDetails(lastName, firstName, birthdate)
 }
 
+func outputUserDetails(firstName, lastName, birthdate string) {
+	fmt.Println("User Details:")
+	fmt.Println("First Name: ", firstName)
+	fmt.Println("Last Name: ", lastName)
+	fmt.Println("Birthdate: ", birthdate)
+}
 func getUserData(promptText string) string {
 	fmt.Print(promptText)
 	var value string
