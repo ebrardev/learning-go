@@ -2,7 +2,15 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
+
+type User struct {
+	firstName string
+	lastName  string
+	birthdate string
+	createAt  time.Time
+}
 
 func main() {
 	firstName := getUserData("Please enter your first name: ")
