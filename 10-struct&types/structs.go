@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"time"
 )
@@ -23,13 +24,18 @@ func (u *User) clearUserName() {
 
 }
 
-func newUser(firstName string, lastName string, birthdate string) *User {
+func newUser(firstName string, lastName string, birthdate string) (*User, error) {
+
+	if firstName == "" || lastName == "" || birthdate == "" {
+		return nil, errors.New(" ERROR ! All fields are required")
+	}
+
 	return &User{
 		firstName: firstName,
 		lastName:  lastName,
 		birthdate: birthdate,
 		createAt:  time.Now(),
-	}
+	}, nil
 }
 
 func main() {
@@ -38,7 +44,11 @@ func main() {
 	userBirthdate := getUserData("Please enter your birthdate (MM/DD/YYYY): ")
 
 	var appUser *User
-	appUser = newUser(userFirstName, userLastName, userBirthdate)
+	appUser, err := newUser(userFirstName, userLastName, userBirthdate)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 
 	appUser.outputUserDetails()
 	appUser.clearUserName()
@@ -48,6 +58,6 @@ func main() {
 func getUserData(promptText string) string {
 	fmt.Print(promptText)
 	var value string
-	fmt.Scan(&value)
+	fmt.Scanln(&value)
 	return value
 }
