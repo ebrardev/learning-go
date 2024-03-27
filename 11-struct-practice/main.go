@@ -1,43 +1,37 @@
 package main
 
 import (
-	"errors"
 	"fmt"
+
+	"ebrarcode.dev/gonote/note"
 )
 
 func main() {
 
-	title, content, err := getNoteData()
+	title, content := getNoteData()
+
+	userNote, err := note.New(title, content)
 
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
+
 }
 
-func getNoteData() (string, string, error) {
-	title, err := getUserInput("Note title")
+func getNoteData() (string, string) {
+	title := getUserInput("Note title")
 
-	if err != nil {
+	content := getUserInput("note content")
 
-		return "", "", err
-	}
-	content, err := getUserInput("note content")
-	if err != nil {
-
-		return "", "", err
-	}
-	return title, content, nil
+	return title, content
 }
 
-func getUserInput(prompt string) (string, error) {
+func getUserInput(prompt string) string {
 	fmt.Print(prompt)
 	var value string
 
 	fmt.Scanln(&value)
 
-	if value == "" {
-		return "", errors.New("ERROR! invalid input. Please try again.")
-	}
-	return value, nil
+	return value
 }
