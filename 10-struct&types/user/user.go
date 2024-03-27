@@ -24,7 +24,7 @@ func (u *User) clearUserName() {
 
 }
 
-func newUser(firstName string, lastName string, birthdate string) (*User, error) {
+func NewUser(firstName string, lastName string, birthdate string) (*User, error) {
 
 	if firstName == "" || lastName == "" || birthdate == "" {
 		return nil, errors.New(" ERROR ! All fields are required")
