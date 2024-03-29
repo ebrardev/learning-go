@@ -16,6 +16,8 @@ func main() {
 	fmt.Println(prices)
 	fmt.Println(productNames)
 	fmt.Println(prices[0])
-	feauturedPrices := prices[1:3]
+	feauturedPrices := prices[1:] //? 	feauturedPrices := prices[1:3]
+	highlightedPrices := feauturedPrices[:2]
 	fmt.Println(feauturedPrices)
+	fmt.Println(highlightedPrices)
 }
