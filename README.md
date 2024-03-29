@@ -6,8 +6,8 @@ Welcome to the Go Tutorial Repository! This repository is designed to guide you 
 
 1. [01-firstprogram](01-firstprogram): Introduction to Go with your first program.
 2. [02-organize-package](02-organize-package): Learn how to organize your Go code into packages.
-3. [03-controlflow](03-controlflow): Understanding control flow statements in Go.
-4. [04-datastructures](04-datastructures): Exploring data structures in Go.
+3. [03-value-types ](03-controlflow): Understanding control flow statements in Go.
+4. [04-exercise-profitapp](04-datastructures): Exploring data structures in Go.
 5. [05-concurrency](05-concurrency): Introduction to concurrency in Go.
 
 Each directory contains code examples and explanations relevant to its respective topic. Feel free to explore them in order or jump to the sections that interest you the most.
