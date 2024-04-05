@@ -30,7 +30,7 @@ Each directory contains code examples and explanations relevant to its respectiv
 To get started with the tutorials, clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/ebrardev/go-tutorial.git
+git clone https://github.com/ebrardev/learning-go.git
 
 ```
 
